@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:matjer/HomePage.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:matjer/components/constans.dart';
+import 'package:matjer/screens/HomePage.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: const MyApp(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -18,6 +17,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return HomePage();
+    return MaterialApp(
+      home: HomeScreen(),
+      title: "Electrecal Store",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.almaraiTextTheme(
+          Theme.of(context).textTheme,
+        ),
+        primaryColor: kPrimaryColor,
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: kPrimaryColor),
+      ),
+    );
   }
 }
